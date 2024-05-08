@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-profile-deployment
+  labels:
+    app: aecs-bk-p
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aecs-bk-p
+  template:
+    metadata:
+      labels:
+        app: aecs-bk-p
+    spec:
+      containers:
+      - name: aecs-bk-p
+        image: 654654363370.dkr.ecr.us-east-1.amazonaws.com/aecs_userp_bk_eks:latest
+        ports:
+        - containerPort: 8081
